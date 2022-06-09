@@ -1,0 +1,27 @@
+name: Log the input
+
+on:
+  workflow_call:
+    inputs:
+       something:
+        default: workflow_call_input_default_value
+        type: string
+        required: false
+
+  workflow_dispatch:
+    inputs:
+      SUBGRAPH_NAME:
+        type: choice
+        description: Are you going to deploy a stable or beta version?
+        required: true
+        default: workflow_dispatch_input_default_value
+        options:
+          - workflow_dispatch_input_default_value
+          - workflow_dispatch_input_secondary_value
+
+jobs:
+  deploy-rinkeby:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo ${{ inputs.SUBGRAPH_NAME }}
+      - run: echo ${{ github.event.inputs.SUBGRAPH_NAME }}
