@@ -1,0 +1,40 @@
+name: CI
+
+on: [ push ]
+
+jobs:
+  first:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Log hello
+        run: echo "Hello at first time"
+
+  second:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Log hello
+        run: echo "Hello at the second time"
+
+  third:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Log hello
+        run: echo "Hello at the third time"
+
+  fourth:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Log hello
+        run: echo "Hello at the fourth time"
