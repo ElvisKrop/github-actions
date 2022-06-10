@@ -1,0 +1,9 @@
+name: Reuse logger workflow
+
+on: workflow_dispatch
+
+jobs:
+  just-reuse-another-one:
+    uses: ElvisKrop/github-actions/.github/workflows/input-logger.yml@main
+    with:
+      something: workflow_CALL_input_passed_value
