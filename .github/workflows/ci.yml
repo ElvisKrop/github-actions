@@ -4,9 +4,6 @@ on: [ push ]
 
 jobs:
   first:
-    concurrency:
-      group: single-group
-
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
@@ -16,9 +13,7 @@ jobs:
         run: echo "Hello at first time"
 
   second:
-    concurrency:
-      group: single-group
-
+    needs: first
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
@@ -28,9 +23,7 @@ jobs:
         run: echo "Hello at the second time"
 
   third:
-    concurrency:
-      group: single-group
-
+    needs: second
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
@@ -40,9 +33,7 @@ jobs:
         run: echo "Hello at the third time"
 
   fourth:
-    concurrency:
-      group: single-group
-
+    needs: third
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
