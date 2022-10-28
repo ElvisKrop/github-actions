@@ -1,0 +1,24 @@
+name: Reusable Workflow №1
+
+on:
+  workflow_call:
+    inputs:
+      something:
+        default: workflow_CALL_input_default_value
+        type: string
+        required: false
+
+concurrency:
+  group: group_1
+  cancel-in-progress: false
+
+jobs:
+  hmm-job:
+    runs-on: ubuntu-latest
+    steps:
+      - id: repository_owner
+        uses: ASzc/change-string-case-action@v2
+        with:
+          string: ${{ github.repository_owner }}
+      - id: step2
+        run: echo ${{ steps.repository_owner.outputs.lowercase }}
