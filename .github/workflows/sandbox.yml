@@ -2,7 +2,8 @@ name: Deploy to the sandbox on PR into main branch
 
 on:
   pull_request:
-    branch: main
+    branches:
+      - main
     types:
       - opened
       - edited
