@@ -1,0 +1,31 @@
+name: Chained Jobs
+
+on: workflow_dispatch
+
+jobs:
+  first:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Log hello
+        run: echo "Hello at first time"
+
+  second:
+    needs: first
+    runs-on: ubuntu-latest
+    steps:
+      - name: Log hello
+        run: echo "Hello at the second time"
+
+  third:
+    needs: second
+    runs-on: ubuntu-latest
+    steps:
+      - name: Log hello
+        run: echo "Hello at the third time"
+
+  fourth:
+    needs: third
+    runs-on: ubuntu-latest
+    steps:
+      - name: Log hello
+        run: echo "Hello at the fourth time"
